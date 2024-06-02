@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gastos Fixos e Variáveis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function calcularGastos() {
+            // Coletando valores dos inputs
+            let agua = parseFloat(document.getElementById('agua').value) || 0;
+            let energia = parseFloat(document.getElementById('energia').value) || 0;
+            let telefone = parseFloat(document.getElementById('telefone').value) || 0;
+            let internet = parseFloat(document.getElementById('internet').value) || 0;
+            let aluguel = parseFloat(document.getElementById('aluguel').value) || 0;
+            let totalGastosFixos = agua + energia + telefone + internet + aluguel;
+
+            // Coletando custos adicionais
+            let custosAdicionais = document.getElementsByClassName('custo-adicional');
+            for (let i = 0; i < custosAdicionais.length; i++) {
+                totalGastosFixos += parseFloat(custosAdicionais[i].value) || 0;
+            }
+
+            // Exibindo o total de gastos fixos
+            document.getElementById('resultado').innerText = `Total de gastos fixos R$: ${totalGastosFixos.toFixed(2)}`;
+        }
+
+        function adicionarCusto() {
+            // Criando novos elementos para custos adicionais
+            let div = document.createElement('div');
+            let inputNome = document.createElement('input');
+            let inputCusto = document.createElement('input');
+            let br = document.createElement('br');
+
+            inputNome.setAttribute('type', 'text');
+            inputNome.setAttribute('placeholder', 'Nome do custo adicional');
+            inputCusto.setAttribute('type', 'number');
+            inputCusto.setAttribute('placeholder', 'Valor do custo adicional');
+            inputCusto.className = 'custo-adicional';
+
+            div.appendChild(inputNome);
+            div.appendChild(inputCusto);
+            div.appendChild(br);
+
+            document.getElementById('custos-adicionais').appendChild(div);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Gastos Fixos e Variáveis</h1>
+    <div class="container">
+        <p>Qual o custo de sua água?: <input type="number" id="agua" step="0.01"></p>
+        <p>Qual o custo de sua energia?: <input type="number" id="energia" step="0.01"></p>
+        <p>Qual o custo do seu telefone?: <input type="number" id="telefone" step="0.01"></p>
+        <p>Qual o custo da sua internet?: <input type="number" id="internet" step="0.01"></p>
+        <p>Qual o custo do seu aluguel?: <input type="number" id="aluguel" step="0.01"></p>
+
+        <div id="custos-adicionais"></div>
+
+        <button onclick="adicionarCusto()">Adicionar custo adicional</button>
+        <button onclick="calcularGastos()">Calcular total</button>
+
+        <h2 class="resultado" id="resultado"></h2>
+    </div>
+</body>
+</html>
