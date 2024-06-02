@@ -116,15 +116,10 @@ void listar_produtos() {
         Produto p = produtos[i]; 
 
         printf("Produto %d:\n", i + 1); 
-
         printf("Tipo: %s\n", p.tipo); 
-
         printf("Nome: %s\n", p.nome); 
-
         printf("Custo: %.2f\n", p.custo); 
-
         printf("Preco de Venda: %.2f\n", p.preco_venda); 
-
         printf("Quantidade: %d\n", p.quantidade); 
 
     } 
