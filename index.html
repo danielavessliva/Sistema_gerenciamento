@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gastos Fixos e Variáveis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <p>Qual o custo de sua água?: <input type="number" id="agua" step="0.01"></p>
+        <p>Qual o custo de sua energia?: <input type="number" id="energia" step="0.01"></p>
+        <p>Qual o custo do seu telefone?: <input type="number" id="telefone" step="0.01"></p>
+        <p>Qual o custo da sua internet?: <input type="number" id="internet" step="0.01"></p>
+        <p>Qual o custo do seu aluguel?: <input type="number" id="aluguel" step="0.01"></p>
+
+        <div id="custos-adicionais"></div>
+
+        <button onclick="adicionarCusto()">Adicionar custo adicional</button>
+        <button onclick="calcularGastos()">Calcular total</button>
+
+        <h2 class="resultado" id="resultado"></h2>
+    </div>
+</body>
+</html>
