@@ -50,6 +50,33 @@ void calcular_gastos_fixos_variaveis_lucros() {
         scanf("%d", &adicionar_custo_ou_nao);
     }
 
+    int numFuncionarios;
+    //quantos funcionarios tem a empresa
+    printf("Quantos funcionários a empresa possui?(inclui você proprio): ");
+    scanf("%d", &numFuncionarios);
+//solicita o numero de salarios da empresa
+    float salarios[numFuncionarios];
+    
+    float somaSalarios = 0.0;
+//soma de cada salario
+    for (int i = 0; i < numFuncionarios; i++) {
+        printf("Digite o salário do funcionário %d: ", i + 1);
+        scanf("%f", &salarios[i]);
+        somaSalarios += salarios[i];
+        // Acumula o salário na soma total
+    }
+
+    printf("\nSalários dos funcionários:\n");
+    //repetição da digitação de salarios
+    for (int i = 0; i < numFuncionarios; i++) {
+        printf("Funcionário %d: R$%.2f\n", i + 1, salarios[i]);
+    }
+//impressão da soma
+    printf("\nSoma de todos os salários: R$%.2f\n", somaSalarios);
+      //Soma dos Salarios com gastos fixos
+  total_gastos_fixos = total_gastos_fixos + somaSalarios;
+  printf("total de gastos até agora é de %.2f\n", total_gastos_fixos);
+
     printf("\nQuantos produtos diferentes voce tem?: ");
     scanf("%d", &total_produtos);
 
@@ -77,5 +104,5 @@ void calcular_gastos_fixos_variaveis_lucros() {
 
 int main() {
     calcular_gastos_fixos_variaveis_lucros();
-    return 0;
+    return 0;
 }
